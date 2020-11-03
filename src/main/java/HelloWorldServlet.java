@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
+    int views = 0;
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
@@ -17,5 +18,8 @@ public class HelloWorldServlet extends HttpServlet {
 
         int grade = Integer.parseInt(req.getParameter("grade"));
         out.println("<span>Grade: " + grade + ".00</span>");
+
+        views+=1;
+        out.println("<p>Number of site views: " +views+ "</p>");
     }
 }
