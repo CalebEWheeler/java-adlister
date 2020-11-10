@@ -46,8 +46,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
             stmt.executeUpdate();
-//            Statement stmt = connection.createStatement();
-//            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
@@ -60,10 +59,6 @@ public class MySQLAdsDao implements Ads {
         String sql = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
         System.out.println("query = " + sql);
         return sql;
-//        return "INSERT INTO ads(user_id, title, description) VALUES "
-//            + "(" + ad.getUserId() + ", "
-//            + "'" + ad.getTitle() +"', "
-//            + "'" + ad.getDescription() + "')";
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
