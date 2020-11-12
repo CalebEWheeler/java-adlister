@@ -11,7 +11,7 @@ public class DaoFactory {
         }
         return adsDao;
     }
-
+    //if one doesnt exist we use it and create it
     public static Users getUsersDao() {
         if (usersDao == null) {
             usersDao = new MySQLUsersDao(config);
